@@ -47,7 +47,7 @@ namespace Cs3750FinalGroupProject
 
                         Session["UserName"] = userName.Text;
                         Session["instrctorId"] = actualId;
-                         Response.Redirect("Default.aspx");
+                        Response.Redirect("InstructorDashboard.aspx");
                         //Response.Redirect("WebForm1.aspx");
                         // Response.Write("Password is correct");
                     }

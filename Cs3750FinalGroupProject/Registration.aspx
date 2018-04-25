@@ -1,14 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Cs3750FinalGroupProject.Registration" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Cs3750FinalGroupProject.Registration" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+    
         <div>
             Registration Form Will Put Information into teacher database table<br />
             <table>
@@ -72,6 +66,6 @@
 </table>
 
         </div>
-    </form>
-</body>
-</html>
+    
+
+    </asp:Content>

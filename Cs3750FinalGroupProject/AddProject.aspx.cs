@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Cs3750FinalGroupProject
 {
-    public partial class InstructorDashboard : System.Web.UI.Page
+    public partial class AddProject : System.Web.UI.Page
     {
         public string conString = "Data Source=finalgroupproject.database.windows.net;Initial Catalog=final_project;User ID=finalproject;Password=Carter54321!";
 
@@ -41,7 +41,7 @@ namespace Cs3750FinalGroupProject
                     }
                 }
                 table.Append("</table>");
-                PlaceHolder1.Controls.Add(new Literal { Text = table.ToString() });
+                PlaceHolder3.Controls.Add(new Literal { Text = table.ToString() });
 
                 rd.Close();
 
@@ -83,13 +83,14 @@ namespace Cs3750FinalGroupProject
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string className = courseName.Text.ToString();
+            string projectName = projectName3.Text.ToString();
+            int courseID = Int32.Parse(courseID3.Text.ToString());
 
             SqlConnection con = new SqlConnection(conString);
             con.Open();
             if (con.State == System.Data.ConnectionState.Open)
             {
-                string q = "INSERT INTO dbo.Course(CourseName,InstructorIDFK)values('" + courseName.Text + "','" + Session["instrctorId"] + "')";
+                string q = "INSERT INTO Project(Name,CourseID)values('" + projectName + "','" + courseID + "')";
                 SqlCommand cmd = new SqlCommand(q, con);
                 cmd.ExecuteNonQuery();
                 // MessageBox.Show("Connection successful");

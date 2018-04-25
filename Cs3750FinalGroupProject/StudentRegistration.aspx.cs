@@ -31,7 +31,18 @@ namespace Cs3750FinalGroupProject
                 SqlCommand cmd = new SqlCommand(q, con);
                 cmd.ExecuteNonQuery();
                 // MessageBox.Show("Connection successful");
+
+                string GetStudentId = "SELECT StudentID FROM dbo.Student WHERE Username='" + userName.Text + "'";
+                SqlCommand studentId = new SqlCommand(GetStudentId, con);
+                string actualId = studentId.ExecuteScalar().ToString();
+
+                Session["StudentId"] = actualId;
+
+                Session["StudentName"] = userName.Text;
+
+                
             }
+            Response.Redirect("StudentAddClass.aspx");
         }
     }
 }

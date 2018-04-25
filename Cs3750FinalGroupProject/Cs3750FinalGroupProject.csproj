@@ -128,6 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="RemoveFromGroup.aspx" />
+    <Content Include="AddStudentsToGroup.aspx" />
+    <Content Include="RemoveFromProject.aspx" />
+    <Content Include="AddStudentsToProject.aspx" />
     <Content Include="AddStudentsToClassaspx.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -145,6 +149,8 @@
     </Content>
     <None Include="Properties\PublishProfiles\Cs3750FinalGroupProject - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="AddGroup.aspx" />
+    <Content Include="AddProject.aspx" />
     <Content Include="InstructorDashboard.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LoginPage.aspx" />
@@ -178,6 +184,8 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="StudentAddGroup.aspx" />
+    <Content Include="StudentAddProject.aspx" />
     <Content Include="StudentAddClass.aspx" />
     <Content Include="StudentRegistration.aspx" />
     <Content Include="TeacherLogin.aspx" />
@@ -187,6 +195,34 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RemoveFromGroup.aspx.cs">
+      <DependentUpon>RemoveFromGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoveFromGroup.aspx.designer.cs">
+      <DependentUpon>RemoveFromGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddStudentsToGroup.aspx.cs">
+      <DependentUpon>AddStudentsToGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddStudentsToGroup.aspx.designer.cs">
+      <DependentUpon>AddStudentsToGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveFromProject.aspx.cs">
+      <DependentUpon>RemoveFromProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoveFromProject.aspx.designer.cs">
+      <DependentUpon>RemoveFromProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddStudentsToProject.aspx.cs">
+      <DependentUpon>AddStudentsToProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddStudentsToProject.aspx.designer.cs">
+      <DependentUpon>AddStudentsToProject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddStudentsToClassaspx.aspx.cs">
       <DependentUpon>AddStudentsToClassaspx.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,6 +255,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="AddGroup.aspx.cs">
+      <DependentUpon>AddGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddGroup.aspx.designer.cs">
+      <DependentUpon>AddGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddProject.aspx.cs">
+      <DependentUpon>AddProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProject.aspx.designer.cs">
+      <DependentUpon>AddProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="InstructorDashboard.aspx.cs">
       <DependentUpon>InstructorDashboard.aspx</DependentUpon>
@@ -262,6 +312,20 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StudentAddGroup.aspx.cs">
+      <DependentUpon>StudentAddGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentAddGroup.aspx.designer.cs">
+      <DependentUpon>StudentAddGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentAddProject.aspx.cs">
+      <DependentUpon>StudentAddProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentAddProject.aspx.designer.cs">
+      <DependentUpon>StudentAddProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentAddClass.aspx.cs">
       <DependentUpon>StudentAddClass.aspx</DependentUpon>

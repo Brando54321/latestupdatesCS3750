@@ -53,35 +53,35 @@ namespace Cs3750FinalGroupProject
                 con.Close();
 
 
-                SqlConnection con2 = new SqlConnection(conString);
-                con2.Open();
+                //SqlConnection con2 = new SqlConnection(conString);
+                //con2.Open();
 
 
 
-                SqlCommand database2 = new SqlCommand();
-                database2.CommandText = "Select * FROM dbo.ClassRegistration = " + Session["StudentId"];
-                database2.Connection = con2;
-                SqlDataReader rd2 = database2.ExecuteReader();
+                //SqlCommand database2 = new SqlCommand();
+                //database2.CommandText = "Select * FROM dbo.Approval Where StudentID = " + Session["StudentId"];
+                //database2.Connection = con2;
+                //SqlDataReader rd2 = database2.ExecuteReader();
 
-                table2.Append("<table border='1'>");
-                table2.Append("<tr><th>Registration ID</th><th>Course ID</th>");
-                table2.Append("</tr>");
+                //table2.Append("<table border='1'>");
+                //table2.Append("<tr><th>Registration ID</th><th>Course ID</th>");
+                //table2.Append("</tr>");
 
-                if (rd2.HasRows)
-                {
-                    while (rd2.Read())
-                    {
-                        table2.Append("<tr>");
-                        table2.Append("<td>" + rd2[0] + "</td>");
-                        table2.Append("<td>" + rd2[1] + "</td>");
+                //if (rd2.HasRows)
+                //{
+                   // while (rd2.Read())
+                    //{
+                        //table2.Append("<tr>");
+                        //table2.Append("<td>" + rd2[0] + "</td>");
+                        //table2.Append("<td>" + rd2[1] + "</td>");
 
-                        table2.Append("</tr>");
-                    }
-                }
-                table2.Append("</table>");
-                PlaceHolder2.Controls.Add(new Literal { Text = table2.ToString() });
+                       // table2.Append("</tr>");
+                    //}
+                //}
+                //table2.Append("</table>");
+                //PlaceHolder2.Controls.Add(new Literal { Text = table2.ToString() });
 
-                rd2.Close();
+                //rd2.Close();
 
             }
         }
@@ -110,7 +110,7 @@ namespace Cs3750FinalGroupProject
             if (con.State == System.Data.ConnectionState.Open)
             {
                 
-                string q = "INSERT INTO dbo.ClassRegistration(CourseId,StudentId,InstructorID,TeacherAllowAccess)values('" + x + "','" + Convert.ToInt32(Session["StudentId"]) + "','" + instID + "','" + 0 + "')";
+                string q = "INSERT INTO dbo.ClassRegistration(CourseId,StudentId,TeacherAllowAccess,InstructorID)values('" + x + "','" + Convert.ToInt32(Session["StudentId"]) + "','" + 0 + "','" + instID + "')";
                 SqlCommand cmd = new SqlCommand(q, con);
                 cmd.ExecuteNonQuery();
                 // MessageBox.Show("Connection successful");

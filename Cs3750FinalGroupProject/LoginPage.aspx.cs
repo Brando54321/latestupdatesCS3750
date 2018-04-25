@@ -48,7 +48,7 @@ namespace Cs3750FinalGroupProject
 
                         Session["StudentName"] = userName.Text;
 
-                        Response.Redirect("Default.aspx");
+                        Response.Redirect("StudentAddClass.aspx");
                        // Response.Write("Password is correct");
                     }
                     else

@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Cs3750FinalGroupProject
 {
-    public partial class InstructorDashboard : System.Web.UI.Page
+    public partial class AddGroup : System.Web.UI.Page
     {
         public string conString = "Data Source=finalgroupproject.database.windows.net;Initial Catalog=final_project;User ID=finalproject;Password=Carter54321!";
 
@@ -22,11 +22,11 @@ namespace Cs3750FinalGroupProject
                 SqlConnection con = new SqlConnection(conString);
                 con.Open();
                 SqlCommand database = new SqlCommand();
-                database.CommandText = "Select * FROM dbo.Course WHERE InstructorIDFK= " + Session["instrctorId"];
+                database.CommandText = "Select Project.ProjectID, Project.Name, Course.CourseName, Project.CourseID FROM Project, Course WHERE Project.CourseID = Course.CourseID and Course.InstructorIDFK= " + Session["instrctorId"];
                 database.Connection = con;
                 SqlDataReader rd = database.ExecuteReader();
                 table.Append("<table border='1'>");
-                table.Append("<tr><th>Course ID</th><th>Course Name</th>");
+                table.Append("<tr><th>Project ID</th><th>Project Name</th><th>Course Name</th><th>Course ID</th>");
                 table.Append("</tr>");
 
                 if (rd.HasRows)
@@ -35,13 +35,15 @@ namespace Cs3750FinalGroupProject
                     {
                         table.Append("<tr>");
                         table.Append("<td>" + rd[0] + "</td>");
+                        table.Append("<td>" + rd[1] + "</td>");
                         table.Append("<td>" + rd[2] + "</td>");
+                        table.Append("<td>" + rd[3] + "</td>");
 
                         table.Append("</tr>");
                     }
                 }
                 table.Append("</table>");
-                PlaceHolder1.Controls.Add(new Literal { Text = table.ToString() });
+                PlaceHolder2.Controls.Add(new Literal { Text = table.ToString() });
 
                 rd.Close();
 
@@ -83,13 +85,14 @@ namespace Cs3750FinalGroupProject
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string className = courseName.Text.ToString();
+            string groupName = projectName2.Text.ToString();
+            int projectID = Int32.Parse(projectID3.Text.ToString());
 
             SqlConnection con = new SqlConnection(conString);
             con.Open();
             if (con.State == System.Data.ConnectionState.Open)
             {
-                string q = "INSERT INTO dbo.Course(CourseName,InstructorIDFK)values('" + courseName.Text + "','" + Session["instrctorId"] + "')";
+                string q = "INSERT INTO dbo.Groups(Name,ProjectID)values('" + groupName + "','" + projectID + "')";
                 SqlCommand cmd = new SqlCommand(q, con);
                 cmd.ExecuteNonQuery();
                 // MessageBox.Show("Connection successful");

@@ -10,16 +10,16 @@
 namespace Cs3750FinalGroupProject {
     
     
-    public partial class InstructorDashboard {
+    public partial class StudentAddProject {
         
         /// <summary>
-        /// courseName control.
+        /// projectName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox courseName;
+        protected global::System.Web.UI.WebControls.TextBox projectName;
         
         /// <summary>
         /// btnSubmit control.
@@ -38,5 +38,14 @@ namespace Cs3750FinalGroupProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
+        
+        /// <summary>
+        /// PlaceHolder2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder2;
     }
 }

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Cs3750FinalGroupProject
 {
-    public partial class AddStudentsToClassaspx : System.Web.UI.Page
+    public partial class RemoveFromProject : System.Web.UI.Page
     {
         public string conString = "Data Source=finalgroupproject.database.windows.net;Initial Catalog=final_project;User ID=finalproject;Password=Carter54321!";
 
@@ -31,12 +31,12 @@ namespace Cs3750FinalGroupProject
 
 
                 SqlCommand database2 = new SqlCommand();
-                database2.CommandText = "Select ClassRegistration.RegistrationId, ClassRegistration.CourseId, ClassRegistration.StudentId, Student.FirstName, Student.LastName, ClassRegistration.TeacherAllowAccess, ClassRegistration.InstructorID FROM ClassRegistration, Student WHERE Student.StudentID = ClassRegistration.StudentId and ClassRegistration.TeacherAllowAccess = 0 and InstructorID= " + Session["instrctorId"];
+                database2.CommandText = "Select * FROM dbo.ProjectApproval WHERE Status = 1 and InstructorID= " + Session["instrctorId"]; ;
                 database2.Connection = con2;
                 SqlDataReader rd2 = database2.ExecuteReader();
 
                 table2.Append("<table border='1'>");
-                table2.Append("<tr><th>Registration ID</th><th>Course ID</th><th>Student ID</th><th>Student First Name</th><th>Student Last Name</th><th>Teacher Allow access</th> <th>Instructor ID</th>");
+                table2.Append("<tr><th>Registration ID</th><th>Project ID</th><th>Student ID</th><th>Status</th> <th>Instructor ID</th>");
                 table2.Append("</tr>");
 
                 if (rd2.HasRows)
@@ -49,8 +49,6 @@ namespace Cs3750FinalGroupProject
                         table2.Append("<td>" + rd2[2] + "</td>");
                         table2.Append("<td>" + rd2[3] + "</td>");
                         table2.Append("<td>" + rd2[4] + "</td>");
-                        table2.Append("<td>" + rd2[5] + "</td>");
-                        table2.Append("<td>" + rd2[6] + "</td>");
 
                         table2.Append("</tr>");
                     }
@@ -70,7 +68,7 @@ namespace Cs3750FinalGroupProject
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            int studentId = Int32.Parse(courseName.Text);
+            int studentId = Int32.Parse(projectName.Text);
 
 
 
@@ -79,7 +77,7 @@ namespace Cs3750FinalGroupProject
             con.Open();
             if (con.State == System.Data.ConnectionState.Open)
             {
-                string q = "UPDATE dbo.ClassRegistration SET TeacherAllowAccess = 1 WHERE StudentId= " + studentId;
+                string q = "UPDATE dbo.ProjectApproval SET Status = 0 WHERE StudentId= " + studentId;
                 SqlCommand cmd = new SqlCommand(q, con);
                 cmd.ExecuteNonQuery();
                 // MessageBox.Show("Connection successful");

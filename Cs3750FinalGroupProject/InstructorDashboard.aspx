@@ -32,11 +32,11 @@
         <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
     </div>
     
-     <div>
+     <%--<div>
         <hr />
         <br />
          <p>Students wating to register for classes</p>
-         <p>Where Students have a 0 in TeacherAllowAccess  update to 1 to add students into your classes</p>
+         <p>Where Students have a 0 in Status  update to 1 to add students into your classes</p>
         <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
         <%-- <div>
               <hr />
@@ -46,8 +46,15 @@
                 <%--<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />--%>
               <%--</p>
              
-         </div>--%>
-         <p><a runat="server" href="~/AddStudentsToClassaspx">Register Student</a></p>
+         </div>--%> --%>
+    <div>
+         <p><a runat="server" href="~/AddProject">Add Project</a></p>
+         <p><a runat="server" href="~/AddGroup">Add Group</a></p>
+         <p><a runat="server" href="~/AddStudentsToClassaspx">Student Class Approvals</a></p>
+         <p><a runat="server" href="~/AddStudentsToProject">Project Approvals</a></p>
+         <p><a runat="server" href="~/AddStudentsToGroup">Group Approvals</a></p>
+         <p><a runat="server" href="~/RemoveFromProject">Remove from Project</a></p>
+         <p><a runat="server" href="~/RemoveFromGroup">Remove from Group</a></p>
     </div>
 </asp:Content>
 

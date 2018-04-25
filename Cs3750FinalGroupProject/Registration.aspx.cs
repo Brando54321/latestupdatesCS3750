@@ -29,10 +29,19 @@ namespace Cs3750FinalGroupProject
             con.Open();
             if(con.State==System.Data.ConnectionState.Open)
             {
-                string q = "INSERT INTO dbo.Student(FirstName,LastName,Username,Password)values('"+firstName.Text + "','"+ lastName.Text +"','"+ userName.Text +"','" + password.Text + "')";
+                string q = "INSERT INTO dbo.Instructor(FirstName,LastName,Username,Password)values('"+firstName.Text + "','"+ lastName.Text +"','"+ userName.Text +"','" + password.Text + "')";
                 SqlCommand cmd = new SqlCommand(q, con);
                 cmd.ExecuteNonQuery();
-               // MessageBox.Show("Connection successful");
+                // MessageBox.Show("Connection successful");
+
+                string GetinstrctorId = "SELECT InstructorID FROM dbo.Instructor WHERE Username='" + userName.Text + "'";
+                SqlCommand instrctorId = new SqlCommand(GetinstrctorId, con);
+                string actualId = instrctorId.ExecuteScalar().ToString();
+
+
+                Session["UserName"] = uName;
+                Session["instrctorId"] = actualId;
+                Response.Redirect("InstructorDashboard.aspx");
             }
 
           

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentRegistration.aspx.cs" Inherits="Cs3750FinalGroupProject.StudentRegistration" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div>
-            Registration Form Will Put Information into teacher database table<br />
+            Registration Form Will Put Information into Student database table<br />
             <table>
         <tr>
             <td>
