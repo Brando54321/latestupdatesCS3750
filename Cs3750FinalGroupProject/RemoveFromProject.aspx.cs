@@ -31,12 +31,12 @@ namespace Cs3750FinalGroupProject
 
 
                 SqlCommand database2 = new SqlCommand();
-                database2.CommandText = "Select * FROM dbo.ProjectApproval WHERE Status = 1 and InstructorID= " + Session["instrctorId"]; ;
+                database2.CommandText = "Select ProjectApproval.ProjectApprovalID, ProjectApproval.ProjectID, ProjectApproval.StudentID, Student.FirstName, Student.LastName, ProjectApproval.Status FROM ProjectApproval, Student WHERE Student.StudentID = ProjectApproval.StudentID and ProjectApproval.Status = 1 and ProjectApproval.InstructorID= " + Session["instrctorId"]; ;
                 database2.Connection = con2;
                 SqlDataReader rd2 = database2.ExecuteReader();
 
                 table2.Append("<table border='1'>");
-                table2.Append("<tr><th>Registration ID</th><th>Project ID</th><th>Student ID</th><th>Status</th> <th>Instructor ID</th>");
+                table2.Append("<tr><th>Registration ID</th><th>Project ID</th><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Status</th>");
                 table2.Append("</tr>");
 
                 if (rd2.HasRows)
@@ -49,6 +49,7 @@ namespace Cs3750FinalGroupProject
                         table2.Append("<td>" + rd2[2] + "</td>");
                         table2.Append("<td>" + rd2[3] + "</td>");
                         table2.Append("<td>" + rd2[4] + "</td>");
+                        table2.Append("<td>" + rd2[5] + "</td>");
 
                         table2.Append("</tr>");
                     }

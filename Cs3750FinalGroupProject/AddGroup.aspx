@@ -13,7 +13,7 @@
              <asp:TextBox ID="projectName2" runat="server" required="true" type="text"></asp:TextBox>
             </td>
         </tr>
-                </tr>
+                
             <tr>
             <td>
                 ProjectID</td>
